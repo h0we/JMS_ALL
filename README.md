@@ -1,3 +1,7 @@
+## DockerHub
+
+[Dockerhub](https://hub.docker.com/repository/docker/h0we/jms_all) Allinone镜像
+
 ## How to start
 
 环境迁移和更新升级请检查 SECRET_KEY 是否与之前设置一致, 不能随机生成, 否则数据库所有加密的字段均无法解密
