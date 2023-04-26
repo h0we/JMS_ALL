@@ -7,7 +7,7 @@ ENV Version=${Version} \
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y --no-install-recommends wget python3.9 python3.9-dev python3.9-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
+    && apt-get install -y --no-install-recommends git wget python3.9 python3.9-dev python3.9-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "LANG=$LANG" > /etc/default/locale \
     && echo "deb http://nginx.org/packages/ubuntu focal nginx" > /etc/apt/sources.list.d/nginx.list \
