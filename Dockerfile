@@ -7,7 +7,7 @@ ENV Version=${Version} \
 
 RUN set -ex \
     && apt-get update \
-    && apt-get install -y --no-install-recommends wget python3.8 python3.8-dev python3-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
+    && apt-get install -y --no-install-recommends wget python3.9 python3.9-dev python3.9-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "LANG=$LANG" > /etc/default/locale \
     && echo "deb http://nginx.org/packages/ubuntu focal nginx" > /etc/apt/sources.list.d/nginx.list \
@@ -19,7 +19,7 @@ RUN set -ex \
     && apt-get install -y --no-install-recommends libaio-dev freetds-dev freetds-dev libpq-dev libffi-dev libxml2-dev libxmlsec1-dev libxmlsec1-openssl libxslt-dev libmariadb-dev libldap2-dev libsasl2-dev openssh-client pkg-config sshpass mariadb-client bash-completion g++ make \
     && apt-get install -y --no-install-recommends libcairo2-dev libjpeg-turbo8-dev libpng-dev libtool-bin uuid-dev \
     && apt-get install -y --no-install-recommends libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev \
-    && python3.8 -m venv /opt/py3 \
+    && python3.9 -m venv /opt/py3 \
     && wget http://download.jumpserver.org/public/guacamole-server-1.4.0.tar.gz \
     && tar -xf guacamole-server-1.4.0.tar.gz \
     && cd guacamole-server-1.4.0 \
