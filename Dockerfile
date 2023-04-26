@@ -124,10 +124,10 @@ RUN set -ex \
     && rm -rf /opt/guacamole-server-1.4.0 \
     && rm -rf ~/.cache/pip
 
-COPY allinone/readme.txt readme.txt
-COPY allinone/entrypoint.sh .
-COPY allinone/jumpserver.conf /etc/nginx/conf.d/
-COPY allinone/supervisord.conf /etc/supervisor/conf.d/
+COPY readme.txt readme.txt
+COPY entrypoint.sh .
+COPY umpserver.conf /etc/nginx/conf.d/
+COPY supervisord.conf /etc/supervisor/conf.d/
 RUN chmod +x ./entrypoint.sh
 
 VOLUME /opt/jumpserver/data
