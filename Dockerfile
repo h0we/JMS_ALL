@@ -1,15 +1,15 @@
 FROM ubuntu:focal
 WORKDIR /opt
 ARG TARGETARCH=amd64 \
-    Version=v3.2.1
+    Version=v3.2.2
 ENV Version=${Version} \
     LANG=zh_CN.UTF-8
 
 RUN set -ex \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends git wget python3.9 python3.9-dev python3.9-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "LANG=$LANG" > /etc/default/locale \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends git wget python3.9 python3.9-dev python3.9-venv curl gnupg2 ca-certificates lsb-release language-pack-zh-hans netcat gettext software-properties-common iputils-ping telnet \
     && echo "deb http://nginx.org/packages/ubuntu focal nginx" > /etc/apt/sources.list.d/nginx.list \
     && echo "deb https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-6.0.list \
     && wget -qO - https://nginx.org/keys/nginx_signing.key | apt-key add - \
@@ -80,7 +80,7 @@ RUN set -ex \
     && mv magnus-${Version}-linux-${TARGETARCH} /opt/magnus \
     && chmod 755 /opt/magnus/magnus \
     && chown -R root:root /opt/magnus \
-    && wget https://github.com/h0we/ACL4SSR/releases/download/lina-test/lina-v3.2.1.tar.gz \
+    && wget https://raw.githubusercontent.com/h0we/ACL4SSR/rm/lina-v3.2.2.tar.gz \
     && tar -xf lina-${Version}.tar.gz \
     && mv lina-${Version} lina \
     && wget https://github.com/jumpserver/luna/releases/download/${Version}/luna-${Version}.tar.gz \
@@ -126,7 +126,7 @@ RUN set -ex \
 
 COPY readme.txt readme.txt
 COPY entrypoint.sh .
-COPY umpserver.conf /etc/nginx/conf.d/
+COPY jumpserver.conf /etc/nginx/conf.d/
 COPY supervisord.conf /etc/supervisor/conf.d/
 RUN chmod +x ./entrypoint.sh
 
