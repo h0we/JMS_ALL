@@ -1,6 +1,6 @@
 ## DockerHub
 
-Docker Hub [jms_all v3.2.2](https://hub.docker.com/repository/docker/h0we/jms_all) All in one 镜像
+Docker Hub [jms_all v3.2.2](https://hub.docker.com/r/h0we/jms_all) All in one 镜像
 
 
 ## How to start
