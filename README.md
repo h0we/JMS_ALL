@@ -1,6 +1,6 @@
 ## DockerHub
 
-Docker Hub [jms_all v3.3.0](https://hub.docker.com/r/h0we/jms_all) All in one 镜像
+Docker Hub [jms_all v3.4.0](https://hub.docker.com/r/h0we/jms_all) All in one 镜像
 
 
 ## How to start
@@ -24,7 +24,7 @@ docker run --name jms_all --network jms_net --rm \
   -e DB_USER=root \
   -e DB_PASSWORD=weakPassword \
   --privileged=true \
-  h0we/jms_all:v3.3.0 init_db
+  h0we/jms_all:v3.4.0 init_db
 
 docker run --name jms_all --network jms_net -d \
   -p 80:80 \
@@ -36,7 +36,7 @@ docker run --name jms_all --network jms_net -d \
   -e DB_PASSWORD=weakPassword \
   -e DB_NAME=jumpserver \
   --privileged=true \
-  h0we/jms_all:v3.3.0
+  h0we/jms_all:v3.4.0
 ```
 ```sh
 # 测试完毕后清理环境
@@ -112,7 +112,7 @@ docker run --name jms_all --rm \
   -e REDIS_HOST=192.168.x.x \
   -e REDIS_PORT=6379 \
   -e REDIS_PASSWORD=weakPassword \
-  h0we/jms_all:v3.3.0 init_db   # 确定无报错
+  h0we/jms_all:v3.4.0 init_db   # 确定无报错
 ```
 
 **启动 JumpServer**
@@ -136,7 +136,7 @@ docker run --name jms_all -d \
   -e REDIS_PORT=6379 \
   -e REDIS_PASSWORD=weakPassword \
   --privileged=true \
-  h0we/jms_all:v3.3.0
+  h0we/jms_all:v3.4.0
 ```
 
 **升级**
@@ -149,10 +149,10 @@ docker stop jms_all
 
 # 备份数据库, 下面用到的 DB-xxx 从上面的 docker exec -it jms_all env 结果获取
 mysqldump -h$DB_HOST -p$DB_PORT -u$DB_USER -p$DB_PASSWORD $DB_NAME > /opt/jumpserver-<版本号>.sql
-# 例: mysqldump -h192.168.100.11 -p3306 -ujumpserver -pnu4x599Wq7u0Bn8EABh3J91G jumpserver > /opt/jumpserver-v3.3.0.sql
+# 例: mysqldump -h192.168.100.11 -p3306 -ujumpserver -pnu4x599Wq7u0Bn8EABh3J91G jumpserver > /opt/jumpserver-v3.4.0.sql
 
 # 拉取新版本镜像
-docker pull jumpserver/jms_all:v3.3.0
+docker pull jumpserver/jms_all:v3.4.0
 
 # 删掉旧版本容器
 docker rm jms_all
@@ -173,7 +173,7 @@ docker run --name jms_all --rm \
   -e REDIS_HOST=192.168.x.x \            # 自行修改成你的旧版本 Redis 服务器
   -e REDIS_PORT=6379 \
   -e REDIS_PASSWORD=****** \
-  h0we/jms_all:v3.3.0 upgrade     # 确定无报错
+  h0we/jms_all:v3.4.0 upgrade     # 确定无报错
 
 # 启动新版本
 docker run --name jms_all -d \
@@ -195,5 +195,5 @@ docker run --name jms_all -d \
   -e REDIS_PORT=6379 \
   -e REDIS_PASSWORD=****** \
   --privileged=true \
-  h0we/jms_all:v3.3.0
+  h0we/jms_all:v3.4.0
 ```

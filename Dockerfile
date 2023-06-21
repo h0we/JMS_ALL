@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 WORKDIR /opt
 ARG TARGETARCH=amd64 \
-    Version=v3.3.1
+    Version=v3.4.0
 ENV Version=${Version} \
     LANG=zh_CN.UTF-8
 
@@ -80,7 +80,7 @@ RUN set -ex \
     && mv magnus-${Version}-linux-${TARGETARCH} /opt/magnus \
     && chmod 755 /opt/magnus/magnus \
     && chown -R root:root /opt/magnus \
-    && wget https://raw.githubusercontent.com/h0we/ACL4SSR/rm/lina-v3.3.1.tar.gz \
+    && wget https://raw.githubusercontent.com/h0we/ACL4SSR/rm/lina-v3.4.0.tar.gz \
     && tar -xf lina-${Version}.tar.gz \
     && mv lina-${Version} lina \
     && wget https://github.com/jumpserver/luna/releases/download/${Version}/luna-${Version}.tar.gz \
